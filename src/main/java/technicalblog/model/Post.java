@@ -1,11 +1,19 @@
 package technicalblog.model;
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
+@Table(name="posts")
 public class Post {
 
-    private String title;
-    private String body;
-    private Date date;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -30,5 +38,20 @@ public class Post {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+
+    private Integer id;
+    @Column(name = "title")
+    private String title;
+    @Column(name = "body")
+    private String body;
+    @Column(name = "date")
+    private Date date;
+
+
+
 
 }
